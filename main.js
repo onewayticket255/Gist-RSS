@@ -19,10 +19,8 @@ axios(bloglist[0]['url']).then(res => {
     const regex = bloglist[0]['regex']
     const tmp = regex.exec(res.data)
     const latestPost = tmp[1]
-    console.log(latestPost)
-    
+    console.log(latestPost)  
     content = latestPost ? bloglist[0]['name']+'\n'+latestPost + '\n\n' + time : 'Blog DOM Changed' + '\n\n' + time
-
 }).then(() => {
     box.update({ content })
 })
