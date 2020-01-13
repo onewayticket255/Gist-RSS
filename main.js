@@ -20,12 +20,8 @@ axios(bloglist[0]['url']).then(res => {
     const tmp = regex.exec(res.data)
     const latestPost = tmp[1]
     console.log(latestPost)
-    if (latestPost) {
-        content = bloglist[0]['name']+'\n'+latestPost + '\n\n' + time
-    }
-    else {
-        content = 'Blog DOM Changed' + '\n\n' + time
-    }
+    
+    content = latestPost ? bloglist[0]['name']+'\n'+latestPost + '\n\n' + time : 'Blog DOM Changed' + '\n\n' + time
 
 }).then(() => {
     box.update({ content })
